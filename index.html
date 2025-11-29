@@ -108,6 +108,39 @@
   <script defer src="static/js/bulma-carousel.min.js"></script>
   <script defer src="static/js/bulma-slider.min.js"></script>
   <script defer src="static/js/index.js"></script>
+
+    <!-- ====== Added CSS: constrain image heights to keep divs uniform ====== -->
+  <style>
+    /* 使 carousel 内的图片高度一致（可根据需要调整 360px） */
+    .results-carousel .item img,
+    .hero.teaser img {
+      width: 100%;
+      height: 360px;        /* 固定高度，按需修改 */
+      object-fit: contain;  /* 保持纵横比并在容器内显示完整图像 */
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* 保持 item 区域高度一致并隐藏溢出，避免某张图片撑高父容器 */
+    .results-carousel .item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 380px; /* 比图片高度略大以容纳标题等内容 */
+      overflow: hidden;
+    }
+
+    /* 如果你更喜欢图片按宽度自适应且只限制最大高度，可使用下面替代规则：
+    .results-carousel .item img {
+      max-height: 360px;
+      width: auto;
+      max-width: 100%;
+      display: block;
+      margin: 0 auto;
+    }
+    */
+  </style>
   
   <!-- Structured Data for Academic Papers -->
   <script type="application/ld+json">
